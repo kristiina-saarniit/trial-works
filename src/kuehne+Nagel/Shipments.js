@@ -163,7 +163,7 @@ function Shipments() {
             </div>
 
             <Box display='flex' flexDirection='row' justifyContent='space-evenly'>
-                <Button onClick={goToOpening} variant='outlined' color='primary' sx={{m: 10}}>exit</Button>
+                <Button onClick={goToOpening} variant='outlined' color='primary' sx={{m: 3}}>exit</Button>
             </Box>
 
             <Dialog
