@@ -1,4 +1,4 @@
-import React, {useReducer, useState} from "react";
+import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import Box from '@mui/material/Box';
 import Button from "@mui/material/Button";
@@ -26,16 +26,14 @@ function Reducer() {
     function goToPrevious() {
         navigate('/usestate1')
     }
-    // function goToNext() {
-    //     navigate('/usestate3')
-    // }
 
     //RETURN
     return (
         <Box sx={{width: '95%', p: 2, backgroundColor: 'white'}}>
 
             <div>
-                <h1>useReducer Hook III</h1>
+                <h1>useState Hook II</h1>
+                <p>Practising with Kyle</p>
                 <hr></hr>
 
                 <button onClick={decrement}>-</button>
@@ -47,7 +45,6 @@ function Reducer() {
             <Box display='flex' flexDirection='row' justifyContent='space-evenly'>
                 <Button onClick={goToHooks} variant='outlined' color='primary' sx={{m: 5}}>back to Hooks</Button>
                 <Button onClick={goToPrevious} variant='outlined' color='primary' sx={{m: 5}}>previous example</Button>
-                {/*<Button onClick={goToNext} variant='outlined' color='primary' sx={{m: 5}}>next example</Button>*/}
                 <Button onClick={goToOpening} variant='outlined' color='primary' sx={{m: 5}}>exit</Button>
             </Box>
         </Box>

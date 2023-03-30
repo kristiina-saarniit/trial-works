@@ -13,6 +13,9 @@ import UseMemo from "./hooks/UseMemo";
 import UseReducer1 from "./hooks/UseReducer1";
 import UseReducer2 from "./hooks/UseReducer2";
 import UseReducer3 from "./hooks/UseReducer3";
+import UseReducer4 from "./hooks/UseReducer4";
+import UseReducer5 from "./hooks/UseReducer5";
+import UseContext from "./hooks/UseContext";
 
 
 export default function Routing() {
@@ -30,6 +33,9 @@ export default function Routing() {
             <Route path="/usereducer1" element={<UseReducer1/>}/>
             <Route path="/usereducer2" element={<UseReducer2/>}/>
             <Route path="/usereducer3" element={<UseReducer3/>}/>
+            <Route path="/usereducer4" element={<UseReducer4/>}/>
+            <Route path="/usereducer5" element={<UseReducer5/>}/>
+            <Route path="/usecontext" element={<UseContext/>}/>
 
         </Routes>
     );

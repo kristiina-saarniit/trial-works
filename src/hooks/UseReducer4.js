@@ -1,36 +1,40 @@
-import React, {useReducer, useState} from "react";
+import React, {useReducer} from "react";
 import {useNavigate} from "react-router-dom";
 import Box from '@mui/material/Box';
 import Button from "@mui/material/Button";
 
+const ACTIONS = {
+    // suurte tähtedega seetõttu, et see on globaalne muutumatu konstant
+    INCREMENT: 'increment',
+    DECREMENT: 'decrement'
+}
+
 function reducer(state, action) {
     switch (action.type)
-    //actionid on need tegevused, mida me saame teha actual state'iga.
-        // Kirjeldatud hardcode'ina, st et stringid on igal pool sees.
-    // allpool on kõik meie actionid määratletud - nimi ja mis juhtub (return)
+        //actionid on need tegevused, mida me saame teha actual state'iga
+        // Siin on actionid kirjeldatud softcode'ina, st et konstantidena
     {
-        case 'increment':
+        case ACTIONS.INCREMENT:
             return {count: state.count + 1}
-        case 'decrement':
+        case ACTIONS.DECREMENT:
             return {count: state.count - 1}
         default:
             return state
     }
 }
+
 //FUNCTION
 function Reducer() {
 
     const [state, dispatch] = useReducer(reducer, {count: 0})
-    // const [count, setCount] = useState(0)
-    //eelmised kaks rida on sisuliselt sama tähendsega
-    function increment() {
-        // setCount(prevCount => prevCount + 1);
-        dispatch({type: 'increment'})
-    }
-    function decrement() {
-        // setCount(prevCount => prevCount - 1)
-        dispatch({type: 'decrement'})
 
+    function increment() {
+
+        dispatch({type: ACTIONS.INCREMENT})
+    }
+
+    function decrement() {
+        dispatch({type: ACTIONS.DECREMENT})
     }
 
     let navigate = useNavigate()
@@ -38,14 +42,17 @@ function Reducer() {
     function goToOpening() {
         navigate('/')
     }
+
     function goToHooks() {
         navigate('/hooks')
     }
+
     function goToPrevious() {
-        navigate('/usereducer2')
+        navigate('/usereducer3')
     }
+
     function goToNext() {
-        navigate('/usereducer4')
+        navigate('/usereducer5')
     }
 
     //RETURN
@@ -53,8 +60,8 @@ function Reducer() {
         <Box sx={{width: '95%', p: 2, backgroundColor: 'white'}}>
 
             <div>
-                <h1>useReducer Hook III</h1>
-                <p>Practising with Kyle: useReducer hard-coded</p>
+                <h1>useReducer Hook IV</h1>
+                <p>Practising with Kyle: useReducer soft-coded</p>
 
                 <hr></hr>
 

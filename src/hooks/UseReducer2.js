@@ -39,7 +39,7 @@ function Reducer() {
         //kahe järgmise reaga tühjendame vormi peale sisestamist
         setName('')
         setEmail('')
-        dispatch({type:'add', payload: contact})
+        dispatch({type: 'add', payload: contact})
     }
 
     let navigate = useNavigate()
@@ -64,25 +64,27 @@ function Reducer() {
     return (
         <Box sx={{width: '95%', p: 2, backgroundColor: 'white'}}>
 
-                <h1>useReducer Hook II</h1>
+            <h1>useReducer Hook II</h1>
+            <p>Practising with Malvia</p>
+
+            <hr></hr>
+            <form onSubmit={addContact}>
+                <input
+                    type='text'
+                    placeholder='name'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
                 <hr></hr>
-                <form onSubmit={addContact}>
-                    <input
-                        type='text'
-                        placeholder='name'
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                    <hr></hr>
-                    <input
-                        type='text'
-                        placeholder='email'
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <hr></hr>
-                    <button>Add Contact</button>
-                </form>
+                <input
+                    type='text'
+                    placeholder='email'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <hr></hr>
+                <button>Add Contact</button>
+            </form>
             <div>
                 <ul>
                     {state.map((contact) => {
@@ -90,9 +92,11 @@ function Reducer() {
                             <li key={contact.id}>
                                 <h4>{contact.name}</h4>
                                 <h4>{contact.email}</h4>
-                               <div>
-                                   <button onClick={() => dispatch({type:'delete', payload:{id: contact.id}}) }>Delete</button>
-                               </div>
+                                <div>
+                                    <button
+                                        onClick={() => dispatch({type: 'delete', payload: {id: contact.id}})}>Delete
+                                    </button>
+                                </div>
                             </li>
                         )
                     })}

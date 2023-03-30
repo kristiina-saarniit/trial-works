@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import Box from '@mui/material/Box';
-// import axios from "axios";
-import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 function initialValue() {
@@ -73,7 +71,8 @@ function State() {
 
             <div>
 
-                <h1>useState Hook</h1>
+                <h1>useState Hook I</h1>
+                <p>Practising with Malvia</p>
                 <hr></hr>
 
                 <div>Hello, {flag ? name : ''}!</div>

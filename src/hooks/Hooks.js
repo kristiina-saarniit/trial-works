@@ -22,6 +22,9 @@ function Hooks() {
     function goToUseReducer() {
         navigate('/usereducer1')
     }
+    function goToUseContext() {
+        navigate('/usecontext')
+    }
     function goToOpening() {
         navigate('/')
     }
@@ -40,6 +43,7 @@ function Hooks() {
                 <Button onClick={goToUseEffect} variant='outlined' color='primary' sx={{m: 5}}>Effect</Button>
                 <Button onClick={goToUseMemo} variant='outlined' color='primary' sx={{m: 5}}>Memo</Button>
                 <Button onClick={goToUseReducer} variant='outlined' color='primary' sx={{m: 5}}>Reducer</Button>
+                <Button onClick={goToUseContext} variant='outlined' color='primary' sx={{m: 5}}>Context</Button>
             </Box>
             <Box display='flex' flexDirection='row' justifyContent='center'>
                 <Button onClick={goToOpening} variant='outlined' color='primary' sx={{m: 5}}>exit</Button>

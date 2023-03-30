@@ -48,6 +48,7 @@ function Reducer() {
 
             <div>
                 <h1>useReducer Hook I</h1>
+                <p>Practising with Malvia: useReducer vs useState hard-coded</p>
                 <hr></hr>
 
                 {/*<h2>{counter}</h2>*/}
