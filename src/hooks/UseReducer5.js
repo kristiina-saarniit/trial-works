@@ -2,13 +2,13 @@ import React, {useReducer, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import Box from '@mui/material/Box';
 import Button from "@mui/material/Button";
-import Todo from '../components/Todo'
+import Todo from '../components/ReducerComponent'
 
 export const ACTIONS = {
     ADD_TODO: 'add-todo',
     TOGGLE_TODO: 'toggle-todo',
     DELETE_TODO: 'delete-todo'
-//    ekspordime selle konstandi sellepärast, et Todo.js komponendis on seda vaja
+//    ekspordime selle konstandi sellepärast, et ReducerComponent.js komponendis on seda vaja
 }
 
 function reducer(todos, action) {
@@ -90,7 +90,7 @@ function Reducer() {
                             onChange={e => setName(e.target.value)}/>
                     </form>
                     {todos.map(todo => {
-                        //    järgnevalt loome eraldi komponendi Todo.js, mille siin välja kutsume:
+                        //    järgnevalt loome eraldi komponendi ReducerComponent.js, mille siin välja kutsume:
                         return <Todo key={todo.id} todo={todo} dispatch={dispatch}/>
                     })}
                 </div>
