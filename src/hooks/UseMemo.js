@@ -27,6 +27,10 @@ function Memo() {
         <Box sx={{width: '95%', p: 2, backgroundColor: 'white'}}>
 
             <div>
+
+                <h1>useMemo Hook</h1>
+                <hr></hr>
+
                 <h1>
                     Factorial of {counter} is: <span>{result}</span>
                 </h1>

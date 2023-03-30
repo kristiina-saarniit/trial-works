@@ -25,6 +25,9 @@ function Effect() {
         <Box sx={{width: '95%', p: 2, backgroundColor: 'white'}}>
 
             <div>
+                <h1>useEffect Hook</h1>
+                <hr></hr>
+
                 <div>
                     <button onClick={() => setFlag(!flag)}>
                         Toggle Effect Component

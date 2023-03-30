@@ -33,6 +33,10 @@ function State() {
     function goToHooks() {
         navigate('/hooks')
     }
+    function goToNext() {
+        navigate('/usestate2')
+    }
+
 
     function changeName() {
         console.log('clicked!')
@@ -68,6 +72,10 @@ function State() {
         <Box sx={{width: '95%', p: 2, backgroundColor: 'white'}}>
 
             <div>
+
+                <h1>useState Hook</h1>
+                <hr></hr>
+
                 <div>Hello, {flag ? name : ''}!</div>
                 <button onClick={changeName}>Click me</button>
                 <hr></hr>
@@ -104,6 +112,7 @@ function State() {
             {/*Tagasi avalehele liikumise nupp*/}
             <Box display='flex' flexDirection='row' justifyContent='space-evenly'>
                 <Button onClick={goToHooks} variant='outlined' color='primary' sx={{m: 5}}>back to Hooks</Button>
+                <Button onClick={goToNext} variant='outlined' color='primary' sx={{m: 5}}>next example</Button>
                 <Button onClick={goToOpening} variant='outlined' color='primary' sx={{m: 5}}>exit</Button>
             </Box>
         </Box>

@@ -11,13 +11,16 @@ function Hooks() {
     let navigate = useNavigate()
 
     function goToUseState() {
-        navigate('/usestate')
+        navigate('/usestate1')
     }
     function goToUseEffect() {
         navigate('/useeffect')
     }
     function goToUseMemo() {
         navigate('/usememo')
+    }
+    function goToUseReducer() {
+        navigate('/usereducer1')
     }
     function goToOpening() {
         navigate('/')
@@ -36,6 +39,7 @@ function Hooks() {
                 <Button onClick={goToUseState} variant='outlined' color='primary' sx={{m: 5}}>State</Button>
                 <Button onClick={goToUseEffect} variant='outlined' color='primary' sx={{m: 5}}>Effect</Button>
                 <Button onClick={goToUseMemo} variant='outlined' color='primary' sx={{m: 5}}>Memo</Button>
+                <Button onClick={goToUseReducer} variant='outlined' color='primary' sx={{m: 5}}>Reducer</Button>
             </Box>
             <Box display='flex' flexDirection='row' justifyContent='center'>
                 <Button onClick={goToOpening} variant='outlined' color='primary' sx={{m: 5}}>exit</Button>
