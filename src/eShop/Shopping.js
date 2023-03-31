@@ -24,25 +24,25 @@ function Shopping() {
     const items = [
         {
             label: 'Tshirt',
-            price: 10,
+            price: '10€',
             img: img1,
             description: 'Bart'
         },
         {
             label: 'Tshirt',
-            price: 25,
+            price: '25€',
             img: img2,
             description: 'Lisa'
         },
         {
             label: 'Tshirt',
-            price: 30,
+            price: '30€',
             img: img3,
             description: 'Homer and Marge'
         },
         {
             label: 'Tshirt',
-            price: 35,
+            price: '35€',
             img: img4,
             description: 'Maggie'
         },
@@ -56,29 +56,39 @@ function Shopping() {
 
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popper' : undefined;
-
+    //variable'ite - const ja let - sees hoiame asju ja infot, mida meil on vaja hiljem kasutada.
+    //selleks, et variable'it saaks updeitida, selleks kasutame const ja useState funktsiooni.
     const [shoppingCart, setShoppingCart] = useState([])
     const [lineTotal, setLineTotal] = useState(0)
 
     function addToCart(item) {
         // console.log(item)
-        //    info should now move to the shopping cart
-
-        setShoppingCart([...shoppingCart, item])
+        //    item should now move to the shopping cart
+        let shoppingCartMemo=[...shoppingCart, item]
+        setShoppingCart(shoppingCartMemo)
+        // array siin on selleks, et saaksime meelde jätta kõik tooted,
+        // millele on klikatud ja lisada nendele järgmise, millele klikatakse.
+        //... on spread-operator, mis spreadib kõik tooted uude shoppingCard array'sse
+        //arvutuse teeme siin funktsioonis, sest siin asuvad shopping cardis olevad tooted
+        let innerTotal=0
+        for (let position of shoppingCartMemo) {
+            innerTotal += parseFloat(position.price)
+        //    parseFloat on selleks, et teha misiganes asjast numbrid
+        }
+        // console.log(innerTotal)
+        setLineTotal(innerTotal)
 
         //todo:
         // define local variable "total",
-        // then loop through "items" in shopping card
+        // then loop through "items" in shopping card - for of on kõige mugavam siin luupimiseks
         // and add total to variable
         // adding price of the item to the total
         // add total to useState lineTotal
         // output the lineTotal in the shopping cart - siin on vaja ehitada loop
         // mõelda läbi, mis juhtub, kui ma mingi toote lisan ostukorvi.
-        // Oliver saadab mulle Vali-IT lindistuse, kus nad teevad täpselt seda sama asja
 
     }
-
-    console.log(shoppingCart)
+    // console.log(shoppingCart)
 
     return (
 
@@ -93,34 +103,38 @@ function Shopping() {
                 </IconButton>
                 <Popper id={id} open={open} anchorEl={anchorEl}>
                     <Box sx={{border: 1, p: 1, bgcolor: 'background.paper'}}>
-                        {shoppingCart.map((el, index) => {
+                        {shoppingCart.map((itemInShoppingCart, index) => {
+                            //array'd saab alati loopida
                             return (
                                 <div key={index}>
-                                    {el.description}
+                                    {itemInShoppingCart.description}
                                 </div>
                             )
                         })}
                     </Box>
                     <hr/>
                     <Box sx={{border: 1, p: 1, bgcolor: 'background.paper'}}>
-                        <Typography>Total:{lineTotal}</Typography>
+                        <Typography>Total: {lineTotal} €</Typography>
                     </Box>
                     <hr/>
                     <Box sx={{border: 1, p: 1, bgcolor: 'background.paper'}}>
-                        <Typography>VAT:{}</Typography>
+                        <Typography>VAT 20%: {lineTotal * 0.2} €</Typography>
                     </Box>
                     <hr/>
                     <Box sx={{border: 1, p: 1, bgcolor: 'background.paper'}}>
-                        <Typography>Grand Total:{}</Typography>
+                        <Typography>Grand Total: {lineTotal * 1.2} €</Typography>
                     </Box>
                 </Popper>
             </Box>
             <Box display='flex' flexDirection='row' justifyContent='space-evenly'>
-                {/*igale tootele, mis on listis, toome oma komponendi*/}
+                {/*items on defineeritud loopis. Kõik itemid loopitakse läbi ja
+                igale tootele, mis on listis, toome oma komponendi ehk kuvatakse tootekaart*/}
                 {items.map((item, index) => {
+                    //map on array funktsioon
                     // console.log(item)
                     return (
                         <div onClick={() => addToCart(item)} key={index}>
+                            {/*kogu item'i saadame cart-i seetõttu, et cartis me vajame kasutamiseks mitut item-i omadust */}
                             <ProductCard item={item}/>
                         </div>)
                 })}
