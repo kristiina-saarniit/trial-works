@@ -67,16 +67,16 @@ function Shopping() {
     function addToCart(item) {
         // console.log(item)
         //    item should now move to the shopping cart
-        let shoppingCartMemo=[...shoppingCart, item]
+        let shoppingCartMemo = [...shoppingCart, item]
         setShoppingCart(shoppingCartMemo)
         // array siin on selleks, et saaksime meelde jätta kõik tooted,
         // millele on klikatud ja lisada nendele järgmise, millele klikatakse.
         //... on spread-operator, mis spreadib kõik tooted uude shoppingCard array'sse
         //arvutuse teeme siin funktsioonis, sest siin asuvad shopping cardis olevad tooted
-        let innerTotal=0
+        let innerTotal = 0
         for (let position of shoppingCartMemo) {
             innerTotal += parseFloat(position.price)
-        //    parseFloat on selleks, et teha misiganes asjast numbrid
+            //    parseFloat on selleks, et teha misiganes asjast numbrid
         }
         // console.log(innerTotal)
         setTotal(innerTotal)
@@ -86,8 +86,7 @@ function Shopping() {
         let total = innerTotal + vat
         setGrandTotal(total)
 
-
-        //todo:
+        // õpetus, kuidas ostukorvis arvutust teha:
         // define local variable "total",
         // then loop through "items" in shopping card - for of on kõige mugavam siin luupimiseks
         // and add total to variable
@@ -97,6 +96,7 @@ function Shopping() {
         // mõelda läbi, mis juhtub, kui ma mingi toote lisan ostukorvi.
 
     }
+
     // console.log(shoppingCart)
 
     return (
