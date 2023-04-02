@@ -59,7 +59,10 @@ function Shopping() {
     //variable'ite - const ja let - sees hoiame asju ja infot, mida meil on vaja hiljem kasutada.
     //selleks, et variable'it saaks updeitida, selleks kasutame const ja useState funktsiooni.
     const [shoppingCart, setShoppingCart] = useState([])
-    const [lineTotal, setLineTotal] = useState(0)
+    const [total, setTotal] = useState(0)
+    const [vat, setVat] = useState(0)
+    const [grandTotal, setGrandTotal] = useState(0)
+
 
     function addToCart(item) {
         // console.log(item)
@@ -76,15 +79,21 @@ function Shopping() {
         //    parseFloat on selleks, et teha misiganes asjast numbrid
         }
         // console.log(innerTotal)
-        setLineTotal(innerTotal)
+        setTotal(innerTotal)
+        let vat = innerTotal * 0.2
+        setVat(vat)
+
+        let total = innerTotal + vat
+        setGrandTotal(total)
+
 
         //todo:
         // define local variable "total",
         // then loop through "items" in shopping card - for of on kõige mugavam siin luupimiseks
         // and add total to variable
         // adding price of the item to the total
-        // add total to useState lineTotal
-        // output the lineTotal in the shopping cart - siin on vaja ehitada loop
+        // add total to useState total
+        // output the total in the shopping cart - siin on vaja ehitada loop
         // mõelda läbi, mis juhtub, kui ma mingi toote lisan ostukorvi.
 
     }
@@ -107,22 +116,26 @@ function Shopping() {
                             //array'd saab alati loopida
                             return (
                                 <div key={index}>
-                                    {itemInShoppingCart.description}
+                                    {itemInShoppingCart.description} {itemInShoppingCart.price}
+
+
                                 </div>
                             )
                         })}
                     </Box>
                     <hr/>
                     <Box sx={{border: 1, p: 1, bgcolor: 'background.paper'}}>
-                        <Typography>Total: {lineTotal} €</Typography>
+                        <Typography>Total: {total} €</Typography>
                     </Box>
                     <hr/>
                     <Box sx={{border: 1, p: 1, bgcolor: 'background.paper'}}>
-                        <Typography>VAT 20%: {lineTotal * 0.2} €</Typography>
+                        {/*<Typography>VAT 20%: {total * 0.2} €</Typography>*/}
+                        <Typography>VAT 20%: {vat} €</Typography>
                     </Box>
                     <hr/>
                     <Box sx={{border: 1, p: 1, bgcolor: 'background.paper'}}>
-                        <Typography>Grand Total: {lineTotal * 1.2} €</Typography>
+                        {/*<Typography>Grand Total: {total * 1.2} €</Typography>*/}
+                        <Typography>Grand Total: {grandTotal} €</Typography>
                     </Box>
                 </Popper>
             </Box>
